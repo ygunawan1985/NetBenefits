@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">NetBenefits</string>
+    <string name="welcome">Welcome</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="log_in">Log In</string>
+    <string name="register_as_a_new_user">Register as a new user</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="terms_of_use">Terms of Use</string>
+    <string name="privacy">Privacy</string>
+    <string name="security">Security</string>
+    <string name="accessibility">Accessibility</string>
+    <string name="terms_privacy">© 1998-2019 FMR LLC. All Rights Reserved. By using this website, you consent to the use
+        of cookies as described here. Fidelity Brokerage Services LLC, Member NYSE, SIPC, 900 Salem Street, Smithfield,
+        RI 02917
+    </string>
+    <string name="submit">Submit</string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="enter_your_email_adress">Enter your email adress</string>
+    <string name="enter_your_first_name">Enter your First Name</string>
+</resources>

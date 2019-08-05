@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "712088833782",
+    "firebase_url": "https://netbenefits-2ba28.firebaseio.com",
+    "project_id": "netbenefits-2ba28",
+    "storage_bucket": "netbenefits-2ba28.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:712088833782:android:8ec6142ff21aae68",
+        "android_client_info": {
+          "package_name": "com.example.netbenefitsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "712088833782-s9pddldas8tqjsa5ac4j0p9djkbfilj3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxeNi-0WfVPn2fMF1l07rGPNEoOJuzdqg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "712088833782-s9pddldas8tqjsa5ac4j0p9djkbfilj3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
