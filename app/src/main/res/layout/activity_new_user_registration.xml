@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+
+<layout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         tools:context=".view.activities.newuser.NewUserRegistration">
+
+    <data>
+        <variable
+                name="viewModel"
+                type="com.example.netbenefitsapp.viewmodel.newuser.NewUserRegistrationViewModel" />
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <EditText
             android:id="@+id/etEmailNewUser"
-            android:hint="@string/enter_your_email_adress"
+            android:hint="@string/enter_your_email_address"
             android:textSize="@dimen/font_size_25"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edit_text_border"
+            android:afterTextChanged="@{(editable) -> viewModel.onUserEmailChanged(editable)}"
             android:layout_marginStart="@dimen/margin_50_dp"
             android:layout_marginEnd="@dimen/margin_50_dp"
             android:layout_marginTop="@dimen/margin_20_dp"
@@ -30,11 +40,12 @@
             android:layout_marginStart="@dimen/margin_50_dp"
             android:layout_marginEnd="@dimen/margin_50_dp"
             android:layout_marginTop="@dimen/margin_10_dp"
+            android:afterTextChanged="@{(editable) -> viewModel.onPasswordChanged(editable)}"
             android:background="@drawable/edit_text_border"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etEmailNewUser"/>
-    
+
     <EditText
             android:id="@+id/etFirstName"
             android:hint="@string/enter_your_first_name"
@@ -45,6 +56,7 @@
             android:layout_marginStart="@dimen/margin_50_dp"
             android:layout_marginEnd="@dimen/margin_50_dp"
             android:layout_marginTop="@dimen/margin_10_dp"
+            android:afterTextChanged="@{(editable) -> viewModel.onFirstNameChanged(editable)}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etPasswordNewUser"/>
@@ -59,6 +71,7 @@
             android:layout_marginStart="@dimen/margin_50_dp"
             android:layout_marginEnd="@dimen/margin_50_dp"
             android:layout_marginTop="@dimen/margin_10_dp"
+            android:afterTextChanged="@{(editable) -> viewModel.onLastNameChanged(editable)}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etFirstName"/>
@@ -73,6 +86,7 @@
             android:layout_marginStart="@dimen/margin_50_dp"
             android:layout_marginEnd="@dimen/margin_50_dp"
             android:layout_marginTop="@dimen/margin_10_dp"
+            android:afterTextChanged="@{(editable) -> viewModel.onSsnChanged(editable)}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etLastName"/>
@@ -85,6 +99,8 @@
             android:layout_marginTop="@dimen/margin_20_dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etSocialSecurity"/>
+            app:layout_constraintTop_toBottomOf="@id/etSocialSecurity"
+            android:onClick="@{(view) -> viewModel.createAccountUsingFirebase(view)}"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

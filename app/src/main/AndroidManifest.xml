@@ -11,6 +11,10 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity
+                android:name=".view.activities.main.MainActivity"
+                android:label="@string/title_activity_main">
+        </activity>
         <activity android:name=".view.activities.newuser.NewUserRegistration">
         </activity>
         <activity

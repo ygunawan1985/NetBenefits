@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "712088833782-asamag6jjq5muiou23loipclmr1lq7h4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.netbenefitsapp",
+            "certificate_hash": "d945e3e3cf8d0c4bf0acd0f31f1ed30d5702699f"
+          }
+        },
+        {
           "client_id": "712088833782-s9pddldas8tqjsa5ac4j0p9djkbfilj3.apps.googleusercontent.com",
           "client_type": 3
         }

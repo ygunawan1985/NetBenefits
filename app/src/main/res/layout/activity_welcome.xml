@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".view.activities.welcome.WelcomeActivity" >
+
+    <data>
+        <variable
+                name="viewModel"
+                type="com.example.netbenefitsapp.viewmodel.welcome.WelcomeActivityViewModel" />
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".view.activities.welcome.WelcomeActivity">
+        android:layout_height="match_parent">
 
     <TextView
             android:id="@+id/tvWelcome"
@@ -41,6 +48,7 @@
             android:layout_marginStart="@dimen/margin_50_dp"
             android:layout_marginEnd="@dimen/margin_50_dp"
             android:layout_marginTop="@dimen/margin_10_dp"
+            android:afterTextChanged="@{(editable) -> viewModel.onEmailChanged(editable)}"
             android:background="@drawable/edit_text_border"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -65,10 +73,12 @@
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textPassword"
             android:textSize="@dimen/font_size_25"
             android:layout_marginStart="@dimen/margin_50_dp"
             android:layout_marginEnd="@dimen/margin_50_dp"
             android:layout_marginTop="@dimen/margin_10_dp"
+            android:afterTextChanged="@{(editable) -> viewModel.onPasswordChanged(editable)}"
             android:background="@drawable/edit_text_border"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -87,7 +97,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etPassword"
-            android:onClick="onClick"/>
+            android:onClick="@{(view) -> viewModel.signInUsingFirebase(view)}"/>
 
     <TextView
             android:id="@+id/tvNewUser"
@@ -109,14 +119,5 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvNewUser" />
 
-    <TextView
-            android:id="@+id/tvCurrentUser"
-            android:textAlignment="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/frmTermsFragment"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -18,6 +18,13 @@
     </string>
     <string name="submit">Submit</string>
     <string name="enter_your_password">Enter your password</string>
-    <string name="enter_your_email_adress">Enter your email adress</string>
+    <string name="enter_your_email_address">Enter your email adress</string>
     <string name="enter_your_first_name">Enter your First Name</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_home">Home</string>
+    <string name="title_learn">Learn</string>
+    <string name="title_planning">Planning</string>
+
 </resources>
