@@ -6,15 +6,17 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import android.text.Editable
 import android.view.View
+import com.example.netbenefitsapp.model.User
 import com.example.netbenefitsapp.view.activities.welcome.WelcomeActivity
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
-
-
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class NewUserRegistrationViewModel : ViewModel() {
     private lateinit var mAuth : FirebaseAuth
+    private lateinit var mDatabase : DatabaseReference
     private lateinit var newUserEmail : String
     private lateinit var password : String
     private lateinit var firstName : String
@@ -48,7 +50,12 @@ class NewUserRegistrationViewModel : ViewModel() {
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d("TAG", "createUserWithEmail:success")
-                    val user = mAuth.currentUser
+
+                    val index = newUserEmail.indexOf('@')
+                    val userName = newUserEmail.substring(0, index)
+                    val user = User(userName, newUserEmail, firstName, lastName, ssn, "Starbucks", "Blue Cross Blue Shield", 100000)
+                    addNewUser(user)
+
                     mAuth.signOut()
                     Toast.makeText(view.context, "New account is created", Toast.LENGTH_SHORT).show()
                     view.context.startActivity(Intent(view.context, WelcomeActivity::class.java))
@@ -59,6 +66,11 @@ class NewUserRegistrationViewModel : ViewModel() {
                     Toast.makeText(view.context, "FAILED CREATING ACCOUNT", Toast.LENGTH_SHORT).show()
                 }
             }
+    }
+
+    private fun addNewUser(user : User) {
+        mDatabase = FirebaseDatabase.getInstance().reference
+        mDatabase.child("users").child(user.userName).setValue(user)
     }
 
 }

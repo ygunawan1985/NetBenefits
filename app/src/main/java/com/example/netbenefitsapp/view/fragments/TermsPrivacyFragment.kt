@@ -1,6 +1,7 @@
 package com.example.netbenefitsapp.view.fragments
 
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -69,10 +70,30 @@ class TermsPrivacyFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(view: View?) {
         when(view?.id) {
-            R.id.tvTermsOfUse -> listener?.onFragmentInteraction("termsOfUse")
-            R.id.tvPrivacy -> listener?.onFragmentInteraction("privacy")
-            R.id.tvSecurity -> listener?.onFragmentInteraction("security")
-            R.id.tvAccessibility -> listener?.onFragmentInteraction("accessibility")
+            R.id.tvTermsOfUse -> {
+                listener?.onFragmentInteraction("termsOfUse")
+                val termsOfUseIntent = Intent(Intent.ACTION_VIEW)
+                termsOfUseIntent.setData(Uri.parse("https://www.fidelity.com/terms-of-use"))
+                startActivity(termsOfUseIntent)
+            }
+            R.id.tvPrivacy -> {
+                listener?.onFragmentInteraction("privacy")
+                val privacyIntent = Intent(Intent.ACTION_VIEW)
+                privacyIntent.setData(Uri.parse("https://www.fidelity.com/privacy-policy"))
+                startActivity(privacyIntent)
+            }
+            R.id.tvSecurity -> {
+                listener?.onFragmentInteraction("security")
+                val securityIntent = Intent(Intent.ACTION_VIEW)
+                securityIntent.setData(Uri.parse("https://www.fidelity.com/security/overview"))
+                startActivity(securityIntent)
+            }
+            R.id.tvAccessibility -> {
+                listener?.onFragmentInteraction("accessibility")
+                val accessibilityIntent = Intent(Intent.ACTION_VIEW)
+                accessibilityIntent.setData(Uri.parse("https://www.fidelity.com/accessibility/overview"))
+                startActivity(accessibilityIntent)
+            }
         }
     }
 
