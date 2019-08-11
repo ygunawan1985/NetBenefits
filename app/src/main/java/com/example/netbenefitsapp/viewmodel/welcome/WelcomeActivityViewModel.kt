@@ -13,8 +13,8 @@ import com.google.firebase.auth.FirebaseAuth
 
 class WelcomeActivityViewModel : ViewModel() {
 
-    private lateinit var email : String
-    private lateinit var password : String
+    private var email : String = ""
+    private var password : String = ""
     private val mAuth: FirebaseAuth = FirebaseAuth.getInstance()
 
     fun onEmailChanged(email : Editable) {
@@ -28,25 +28,27 @@ class WelcomeActivityViewModel : ViewModel() {
     }
 
     fun signInUsingFirebase(view : View) {
+        if (email.isNotEmpty() && password.isNotEmpty()) {
+            mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener { task: Task<AuthResult> ->
+                    if (task.isSuccessful) {
+                        // Sign in success, update UI with the signed-in user's information
+                        Log.d("TAG", "signInWithEmail:success")
+                        val user = mAuth.currentUser
 
-        mAuth.signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener { task: Task<AuthResult> ->
-                if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
-                    Log.d("TAG", "signInWithEmail:success")
-                    val user = mAuth.currentUser
-                    //updateUI(user!!)
-                    var nextIntent = Intent(view.context, MainActivity::class.java)
-                    nextIntent.putExtra("user", user)
-                    view.context.startActivity(nextIntent)
+                        var nextIntent = Intent(view.context, MainActivity::class.java)
+                        nextIntent.putExtra("user", user)
+                        view.context.startActivity(nextIntent)
 
-                } else {
-                    // If sign in fails, display a message to the user.
-                    Log.w("TAG", "signInWithEmail:failure", task.exception)
-                    Toast.makeText(view.context, "Authentication failed.", Toast.LENGTH_SHORT).show()
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Log.w("TAG", "signInWithEmail:failure", task.exception)
+                        Toast.makeText(view.context, "Authentication failed. Wrong login info", Toast.LENGTH_SHORT).show()
+                    }
                 }
-            }
-
+        } else {
+            Toast.makeText(view.context, "Enter email / password to login", Toast.LENGTH_SHORT).show()
+        }
     }
 
 }

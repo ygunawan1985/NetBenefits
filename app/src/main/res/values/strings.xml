@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">NetBenefits</string>
+    <string name="app_name">Fidelity NetBenefits</string>
     <string name="welcome">Welcome</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
@@ -28,12 +28,21 @@
     <string name="title_planning">Planning</string>
 
     <string name="disclosures">
-        <a href="https://www.fidelity.com/retirement-ira/small-business/participant-disclosure-regulations-summary">Disclosures</a>
+        <a href="https://www.fidelity.com/retirement-ira/small-business/participant-disclosure-regulations-summary">
+            Disclosures
+        </a>
     </string>
     <string name="contact_us">
         <a href="https://www.fidelity.com/customer-service/contact-us">Contact us</a>
     </string>
     <string name="log_out">Log out</string>
     <string name="enter_user_name">Enter User Name</string>
+    <string name="title_market">Market</string>
+    <string name="title_actions">Actions</string>
+    <string name="go_to_home">Go to Home</string>
+    <string name="update_profile">Update Profile</string>
+    <string name="portfolio_total">Portfolio total</string>
+    <string name="retirement_savings">Retirement Savings</string>
+    <string name="future_roast_401_k">FUTURE ROAST 401(K)</string>
 
 </resources>

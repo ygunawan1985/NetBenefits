@@ -70,7 +70,7 @@ class NewUserRegistrationViewModel : ViewModel() {
 
     private fun addNewUser(user : User) {
         mDatabase = FirebaseDatabase.getInstance().reference
-        mDatabase.child("users").child(user.userName).setValue(user)
+        mDatabase.child("users").child(user.userName.toString()).setValue(user)
     }
 
 }
