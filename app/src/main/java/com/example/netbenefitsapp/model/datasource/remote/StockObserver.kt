@@ -24,6 +24,4 @@ class StockObserver(private var stockCallback: StockCallback) : Observer<List<St
     override fun onComplete() {
         stockCallback.stockCallbackResult(stockResponseList)
     }
-
-
 }

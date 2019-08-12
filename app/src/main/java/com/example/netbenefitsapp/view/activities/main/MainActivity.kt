@@ -11,34 +11,33 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.example.netbenefitsapp.R
+import com.example.netbenefitsapp.model.stockresponse.StockResponse
 import com.example.netbenefitsapp.view.activities.welcome.WelcomeActivity
-import com.example.netbenefitsapp.view.fragments.HomeFragment
-import com.example.netbenefitsapp.view.fragments.LogoutFragment
-import com.example.netbenefitsapp.view.fragments.MarketFragment
+import com.example.netbenefitsapp.view.fragments.*
 import com.example.netbenefitsapp.viewmodel.main.MainActivityViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), MarketFragment.OnFragmentInteractionListener {
 
     private val fragmentManager : FragmentManager = supportFragmentManager
     private lateinit var logoutFragment: LogoutFragment
     private lateinit var mUser : FirebaseUser
     private lateinit var mainActivityViewModel : MainActivityViewModel
+    private var stockResponseList : List<StockResponse> = ArrayList()
     lateinit var toolbar : ActionBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        mUser = FirebaseAuth.getInstance().currentUser!!
         toolbar = supportActionBar!!
-//        toolbar.title = mUser.email
+        toolbar.title = "Welcome, " + mUser.displayName
 
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
         //Bottom navigation bar
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
-        //supportActionBar?.setTitle(FirebaseAuth.getInstance().currentUser?.email)
-
-        mUser = FirebaseAuth.getInstance().currentUser!!
 
         //ViewModel binding
         mainActivityViewModel = MainActivityViewModel()
@@ -61,7 +60,8 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.navigation_planning -> {
                 toolbar.title = "Planning"
-
+                val planningFragment = PlanningFragment()
+                openFragments(planningFragment)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_learn -> {
@@ -72,6 +72,9 @@ class MainActivity : AppCompatActivity() {
                 toolbar.title = "Market"
                 val marketFragment = MarketFragment.newInstance()
                 openFragments(marketFragment)
+                val resultFragment = ResultFragment.newInstance(ArrayList(stockResponseList))
+                resultFragment.setStocks(stockResponseList)
+                openFragments(resultFragment)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_actions -> {
@@ -80,6 +83,10 @@ class MainActivity : AppCompatActivity() {
             }
         }
         false
+    }
+
+    override fun onFragmentInteraction(stockResponseList: List<StockResponse>) {
+        this.stockResponseList = stockResponseList
     }
 
     private fun setupAndAddLogoutFragment() {

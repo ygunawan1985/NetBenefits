@@ -8,7 +8,7 @@ import com.example.netbenefitsapp.R
 import com.example.netbenefitsapp.model.stockresponse.StockResponse
 import kotlinx.android.synthetic.main.stock_item.view.*
 
-class StockListAdapter(private val stockResponseList : List<StockResponse>) : RecyclerView.Adapter<StockListAdapter.ViewHolder>() {
+class StockListAdapter(private val stockResponseList : ArrayList<StockResponse>) : RecyclerView.Adapter<StockListAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
         ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.stock_item, parent, false))
 
