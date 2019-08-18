@@ -53,7 +53,7 @@ class NewUserRegistrationViewModel : ViewModel() {
 
                     val index = newUserEmail.indexOf('@')
                     val userName = newUserEmail.substring(0, index)
-                    val user = User(userName, newUserEmail, firstName, lastName, ssn, "Starbucks", "Blue Cross Blue Shield", 100000)
+                    val user = User(userName, newUserEmail, firstName, lastName, ssn, "Mobile Apps Company", "Blue Cross Blue Shield", 350000, "https://i.imgur.com/1Zxaz88.jpg")
                     addNewUser(user)
 
                     mAuth.signOut()

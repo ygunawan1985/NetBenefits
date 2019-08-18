@@ -14,7 +14,7 @@
 
         <TextView
                 android:id="@+id/tvDate"
-                android:text="DATE"
+                android:text="@string/date"
                 android:layout_margin="@dimen/margin_10_dp"
                 android:textAlignment="center"
                 style="@style/StandardTextStyle"
@@ -27,7 +27,7 @@
 
         <TextView
                 android:id="@+id/tvLow"
-                android:text="LOW VALUE"
+                android:text="@string/low_value"
                 android:layout_margin="@dimen/margin_10_dp"
                 style="@style/StandardTextStyle"
                 android:layout_width="wrap_content"
@@ -38,7 +38,7 @@
 
         <TextView
                 android:id="@+id/tvHigh"
-                android:text="HIGH VALUE"
+                android:text="@string/high_value"
                 android:layout_margin="@dimen/margin_10_dp"
                 style="@style/StandardTextStyle"
                 android:layout_width="wrap_content"
@@ -49,7 +49,7 @@
 
         <TextView
                 android:id="@+id/tvOpen"
-                android:text="OPEN"
+                android:text="@string/open"
                 android:layout_margin="@dimen/margin_10_dp"
                 style="@style/StandardTextStyle"
                 android:layout_width="wrap_content"
@@ -60,7 +60,7 @@
 
         <TextView
                 android:id="@+id/tvClose"
-                android:text="CLOSE"
+                android:text="@string/close"
                 android:layout_margin="@dimen/margin_10_dp"
                 style="@style/StandardTextStyle"
                 android:layout_width="wrap_content"

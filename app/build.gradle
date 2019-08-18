@@ -61,6 +61,13 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxjava:2.2.8'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+
+    //Picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+    //noinspection GradleCompatible
+    //implementation 'com.android.support:design:26.1.0'
+    //implementation 'com.google.android.material:material:1.1.0-alpha04'
 }
 
 apply plugin: 'com.google.gms.google-services'

@@ -1,13 +1,16 @@
 package com.example.netbenefitsapp.view.activities.welcome
 
 import android.content.Intent
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.Window
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentManager
 import com.example.netbenefitsapp.R
@@ -17,9 +20,11 @@ import com.example.netbenefitsapp.view.fragments.TermsPrivacyFragment
 import com.example.netbenefitsapp.viewmodel.welcome.WelcomeActivityViewModel
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
+import com.squareup.picasso.Picasso
 
 class WelcomeActivity : AppCompatActivity(), TermsPrivacyFragment.OnFragmentInteractionListener, View.OnClickListener {
 
+    private val FIDELITY_ICON : String = "https://i.imgur.com/FUpOocB.jpg"
     private val fragmentManager : FragmentManager = supportFragmentManager
     private lateinit var termsPrivacyFragment : TermsPrivacyFragment
     private lateinit var tvNewUser : TextView
@@ -30,6 +35,8 @@ class WelcomeActivity : AppCompatActivity(), TermsPrivacyFragment.OnFragmentInte
         setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_welcome)
+
+        supportActionBar?.setBackgroundDrawable(ColorDrawable(ContextCompat.getColor(this, R.color.color_green)))
 
         //Firebase auth
         mAuth = FirebaseAuth.getInstance()
@@ -45,25 +52,6 @@ class WelcomeActivity : AppCompatActivity(), TermsPrivacyFragment.OnFragmentInte
         setupAndAddFragment()
     }
 
-//    override fun onStart() {
-//        super.onStart()
-//
-//        val currentUser : FirebaseUser? = mAuth.currentUser
-//        updateUI(currentUser)
-//    }
-
-//    private fun updateUI(currentUser: FirebaseUser?) {
-//        val userEmail : String? = currentUser?.email
-//        tvCurrentUser.text = userEmail
-//
-//        if(currentUser != null){
-//            tvLogout.text = "Logout"
-//            tvLogout.setOnClickListener(this)
-//        } else {
-//            tvLogout.text = ""
-//        }
-//    }
-
     private fun setupAndAddFragment() {
         termsPrivacyFragment = TermsPrivacyFragment()
         fragmentManager.beginTransaction().add(R.id.frmTermsFragment, termsPrivacyFragment).addToBackStack("TERMS_PRIVACY_FRAGMENT").commit()
@@ -74,11 +62,6 @@ class WelcomeActivity : AppCompatActivity(), TermsPrivacyFragment.OnFragmentInte
             R.id.tvNewUser -> startActivity(Intent(this, NewUserRegistration::class.java))
         }
     }
-
-//    private fun signOutOfAccountClicked(view : View) {
-//        mAuth.signOut()
-//        updateUI(null)
-//    }
 
     override fun onFragmentInteraction(passedString: String) {
         Toast.makeText(applicationContext, passedString, Toast.LENGTH_SHORT).show()

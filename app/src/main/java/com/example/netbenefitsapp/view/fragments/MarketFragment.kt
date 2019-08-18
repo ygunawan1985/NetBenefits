@@ -59,7 +59,7 @@ class MarketFragment : Fragment(), StockCallback {
 
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is OnFragmentInteractionListener) {
             mListener = context
@@ -69,22 +69,7 @@ class MarketFragment : Fragment(), StockCallback {
     }
 
     override fun stockCallbackResult(stockResponseList: List<StockResponse>) {
-
-        //stockListAdapter = StockListAdapter(stockResponseList)
-        //rvStockList.adapter = stockListAdapter
         mListener.onFragmentInteraction(stockResponseList)
-
-        Log.d("TAG_RESULT", stockResponseList[0].date)
-        Log.d("TAG_RESULT", stockResponseList[0].open.toString())
-        Log.d("TAG_RESULT", stockResponseList[0].close.toString())
-
-        Log.d("TAG_RESULT", stockResponseList[1].date)
-        Log.d("TAG_RESULT", stockResponseList[1].open.toString())
-        Log.d("TAG_RESULT", stockResponseList[1].close.toString())
-
-        Log.d("TAG_RESULT", stockResponseList[2].date)
-        Log.d("TAG_RESULT", stockResponseList[2].open.toString())
-        Log.d("TAG_RESULT", stockResponseList[2].close.toString())
     }
 
     interface OnFragmentInteractionListener{

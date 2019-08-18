@@ -1,5 +1,6 @@
 package com.example.netbenefitsapp.view.fragments
 
+import android.app.ActionBar
 import android.os.Build
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -66,6 +67,7 @@ class HomeFragment : Fragment(), HomeViewModel.MyCallback {
             val answer: String = "As of " + formatter.format(date)
             tvTodaysDate.text = answer
         }
+
 
     }
 

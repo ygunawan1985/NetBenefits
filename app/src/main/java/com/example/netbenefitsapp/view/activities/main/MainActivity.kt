@@ -1,6 +1,7 @@
 package com.example.netbenefitsapp.view.activities.main
 
 import android.content.Intent
+import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
@@ -8,9 +9,14 @@ import android.view.MenuItem
 import androidx.appcompat.app.ActionBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.example.netbenefitsapp.R
+import com.example.netbenefitsapp.model.Article
+import com.example.netbenefitsapp.model.User
+import com.example.netbenefitsapp.model.Video
+import com.example.netbenefitsapp.model.datasource.local.LibraryDatabase
 import com.example.netbenefitsapp.model.stockresponse.StockResponse
 import com.example.netbenefitsapp.view.activities.welcome.WelcomeActivity
 import com.example.netbenefitsapp.view.fragments.*
@@ -22,18 +28,26 @@ class MainActivity : AppCompatActivity(), MarketFragment.OnFragmentInteractionLi
 
     private val fragmentManager : FragmentManager = supportFragmentManager
     private lateinit var logoutFragment: LogoutFragment
-    private lateinit var mUser : FirebaseUser
+    private var mFirebaseUser : FirebaseUser? = null
+    private var mUser : User? = null
     private lateinit var mainActivityViewModel : MainActivityViewModel
     private var stockResponseList : List<StockResponse> = ArrayList()
     lateinit var toolbar : ActionBar
+    private lateinit var articles : ArrayList<Article>
+    private lateinit var videos : ArrayList<Video>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        mUser = FirebaseAuth.getInstance().currentUser!!
+        supportActionBar?.setBackgroundDrawable(ColorDrawable(ContextCompat.getColor(this, R.color.color_green)))
+
+        val bundle = intent?.getBundleExtra("bundle")
+        mFirebaseUser = bundle?.getParcelable("firebaseUser")
+        mUser = bundle?.getParcelable("user")
+
         toolbar = supportActionBar!!
-        toolbar.title = "Welcome, " + mUser.displayName
+        toolbar.title = mUser?.company
 
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
         //Bottom navigation bar
@@ -48,28 +62,36 @@ class MainActivity : AppCompatActivity(), MarketFragment.OnFragmentInteractionLi
 
         //set up logout fragment
         setupAndAddLogoutFragment()
+
+        val libraryDatabase = LibraryDatabase()
+        libraryDatabase.populateArticles()
+        articles = libraryDatabase.getArticles()
+        libraryDatabase.populateVideos()
+        videos = libraryDatabase.getVideos()
     }
 
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_home -> {
-                toolbar.title = mUser.email
+                toolbar.title = mUser?.company
                 val homeFragment = HomeFragment.newInstance()
                 openFragments(homeFragment)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_planning -> {
-                toolbar.title = "Planning"
+                toolbar.title = getString(R.string.planning)
                 val planningFragment = PlanningFragment()
                 openFragments(planningFragment)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_learn -> {
-                toolbar.title = "Learn"
+                toolbar.title = getString(R.string.learn)
+                val learningFragment = LearnFragment.newInstance(articles, videos)
+                openFragments(learningFragment)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_market -> {
-                toolbar.title = "Market"
+                toolbar.title = getString(R.string.market)
                 val marketFragment = MarketFragment.newInstance()
                 openFragments(marketFragment)
                 val resultFragment = ResultFragment.newInstance(ArrayList(stockResponseList))
@@ -78,7 +100,7 @@ class MainActivity : AppCompatActivity(), MarketFragment.OnFragmentInteractionLi
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_actions -> {
-                toolbar.title = "Actions"
+                toolbar.title = getString(R.string.actions)
                 return@OnNavigationItemSelectedListener true
             }
         }

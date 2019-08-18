@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@color/colorGrey">
+        android:background="@color/colorLightGreen">
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -25,7 +25,6 @@
         <TextView
                 android:id="@+id/tvDisclosures"
                 android:text="@string/disclosures"
-                android:autoLink="web"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorBlue"
@@ -37,7 +36,6 @@
         <TextView
                 android:id="@+id/tvContactUs"
                 android:text="@string/contact_us"
-                android:autoLink="web"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorBlue"

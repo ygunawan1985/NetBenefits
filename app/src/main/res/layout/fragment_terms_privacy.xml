@@ -4,7 +4,7 @@
               android:orientation="vertical"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-              android:background="@color/colorGrey"
+              android:background="@color/colorLightGreen"
              tools:context=".view.fragments.TermsPrivacyFragment">
 
     <LinearLayout
@@ -52,10 +52,22 @@
     </LinearLayout>
 
     <TextView
-            android:text="@string/terms_privacy"
+            android:text="@string/all_rights_reserved"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:layout_marginTop="@dimen/margin_50_dp"/>
+            android:layout_marginTop="@dimen/margin_40_dp"/>
+
+    <TextView
+            android:text="@string/by_using_this_website"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+            android:text="@string/fidelity_brokerage_services"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
 </LinearLayout>

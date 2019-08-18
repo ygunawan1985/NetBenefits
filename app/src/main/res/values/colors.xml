@@ -10,4 +10,7 @@
     <color name="colorLightGreen">#B8E0AD</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorGrey">#A8A5A5</color>
+    <color name="color_green">#036808</color>
+    <color name="colorWhiteTransparent">#80FFFFFF</color>
+    <color name="colorBlack">#000000</color>
 </resources>

@@ -22,7 +22,7 @@ class MainActivityViewModel : ViewModel() {
                 var mUser = User(user.userName.toString(),
                     user.email.toString(),
                     user.firstName.toString(), user.lastName.toString(),
-                    user.ssn.toString(), user.company.toString(), user.insurance.toString(), user.balance)
+                    user.ssn.toString(), user.company.toString(), user.insurance.toString(), user.balance, user.companyLogoUrl.toString())
                 bundle.putParcelable("user", mUser)
                 userIntent.putExtra("bundle", bundle)
                 context.startActivity(userIntent)

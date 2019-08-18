@@ -27,14 +27,8 @@
     <string name="title_learn">Learn</string>
     <string name="title_planning">Planning</string>
 
-    <string name="disclosures">
-        <a href="https://www.fidelity.com/retirement-ira/small-business/participant-disclosure-regulations-summary">
-            Disclosures
-        </a>
-    </string>
-    <string name="contact_us">
-        <a href="https://www.fidelity.com/customer-service/contact-us">Contact us</a>
-    </string>
+    <string name="disclosures">Disclosures</string>
+    <string name="contact_us">Contact Us</string>
     <string name="log_out">Log out</string>
     <string name="enter_user_name">Enter User Name</string>
     <string name="title_market">Market</string>
@@ -44,5 +38,32 @@
     <string name="portfolio_total">Portfolio total</string>
     <string name="retirement_savings">Retirement Savings</string>
     <string name="future_roast_401_k">FUTURE ROAST 401(K)</string>
+    <string name="article">Article</string>
+    <string name="category_articles">Articles</string>
+    <string name="category_videos">Videos</string>
+    <string name="category_podcasts">Podcasts</string>
+    <string name="library">Library</string>
+    <string name="date">DATE</string>
+    <string name="low_value">LOW VALUE</string>
+    <string name="high_value">HIGH VALUE</string>
+    <string name="open">OPEN</string>
+    <string name="close">CLOSE</string>
+    <string name="title">TITLE</string>
+    <string name="description">DESCRIPTION</string>
+    <string name="title_activity_library_web_view">LibraryWebViewActivity</string>
+    <string name="videos">Videos</string>
+    <string name="video">Video</string>
+    <string name="articles">Articles</string>
+    <string name="home">Home</string>
+    <string name="planning">Planning</string>
+    <string name="learn">Learn</string>
+    <string name="market">Market</string>
+    <string name="actions">Actions</string>
+    <string name="all_rights_reserved">© 1998-2019 FMR LLC. All Rights Reserved.</string>
+    <string name="by_using_this_website">By using this website, you consent to the use of cookies as described here.
+    </string>
+    <string name="fidelity_brokerage_services">Fidelity Brokerage Services LLC, Member NYSE, SIPC, 900 Salem Street,
+        Smithfield, RI 02917
+    </string>
 
 </resources>

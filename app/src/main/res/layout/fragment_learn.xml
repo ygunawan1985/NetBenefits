@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              tools:context=".view.fragments.LearnFragment">
+
+    <TextView
+            android:id="@+id/tvLibrary"
+            android:text="@string/library"
+            style="@style/StandardTitleStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_marginTop="@dimen/margin_20_dp"
+            android:layout_marginBottom="@dimen/margin_20_dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+            android:id="@+id/ivArticlesIcon"
+            android:layout_margin="@dimen/margin_10_dp"
+            app:srcCompat="@drawable/outline_library_books_black_24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvLibrary"/>
+
+    <TextView
+            android:id="@+id/tvArticles"
+            android:text="@string/articles"
+            style="@style/StandardTitleStyle"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_margin="@dimen/margin_20_dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/ivArticlesIcon"
+            app:layout_constraintTop_toBottomOf="@id/tvLibrary"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvArticles"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintVertical_weight=".20"
+            android:layout_marginTop="@dimen/margin_10_dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivArticlesIcon"/>
+
+    <ImageView
+            android:id="@+id/ivVideos"
+            android:layout_marginTop="@dimen/margin_50_dp"
+            android:layout_marginStart="@dimen/margin_10_dp"
+            android:layout_marginEnd="@dimen/margin_10_dp"
+            android:layout_marginBottom="@dimen/margin_10_dp"
+            app:srcCompat="@drawable/outline_video_library_black_24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rvArticles"/>
+
+    <TextView
+            android:id="@+id/tvVideos"
+            android:text="@string/videos"
+            style="@style/StandardTitleStyle"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_marginTop="60dp"
+            android:layout_marginStart="@dimen/margin_20_dp"
+            android:layout_marginEnd="@dimen/margin_10_dp"
+            android:layout_marginBottom="@dimen/margin_10_dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/ivVideos"
+            app:layout_constraintTop_toBottomOf="@id/rvArticles"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvVideos"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintVertical_weight=".20"
+            android:layout_marginTop="@dimen/margin_10_dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvVideos"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
