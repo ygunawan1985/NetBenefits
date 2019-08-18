@@ -65,5 +65,12 @@
     <string name="fidelity_brokerage_services">Fidelity Brokerage Services LLC, Member NYSE, SIPC, 900 Salem Street,
         Smithfield, RI 02917
     </string>
+    <string name="you_ve_successfully_logged_out">You\'ve successfully logged out.</string>
+    <string name="log_in_again">Log In Again</string>
+    <string name="paperwork">PAPERWORK</string>
+    <string name="send_a_document">Send a document</string>
+    <string name="tax_information">Tax information</string>
+    <string name="about_you">ABOUT YOU</string>
+    <string name="update_your_profile">Update your profile</string>
 
 </resources>

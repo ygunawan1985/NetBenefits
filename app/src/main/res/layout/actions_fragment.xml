@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".view.fragments.ActionsFragment">
+
+    <TextView
+            android:id="@+id/tvPaperwork"
+            android:textSize="@dimen/font_size_20"
+            android:background="#E2E0E0"
+            android:layout_margin="@dimen/margin_10_dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/paperwork"/>
+
+    <TextView
+            android:id="@+id/btnSendDocument"
+            android:text="@string/send_a_document"
+            android:background="@color/colorWhite"
+            android:textSize="@dimen/font_size_20"
+            android:layout_margin="@dimen/margin_10_dp"
+            android:textAlignment="textStart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+            android:id="@+id/btnTaxInformation"
+            android:text="@string/tax_information"
+            android:background="@color/colorWhite"
+            android:textSize="@dimen/font_size_20"
+            android:layout_margin="@dimen/margin_10_dp"
+            android:textAlignment="textStart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+            android:id="@+id/tvAboutYou"
+            android:textSize="@dimen/font_size_20"
+            android:background="#E2E0E0"
+            android:layout_margin="@dimen/margin_10_dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/about_you"/>
+
+    <TextView
+            android:id="@+id/btnUpdateProfile"
+            android:text="@string/update_your_profile"
+            android:background="@color/colorWhite"
+            android:textSize="@dimen/font_size_20"
+            android:layout_margin="@dimen/margin_10_dp"
+            android:textAlignment="textStart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+            android:id="@+id/btnLogout"
+            android:text="@string/log_out"
+            android:background="@color/colorWhite"
+            android:textSize="@dimen/font_size_20"
+            android:layout_margin="@dimen/margin_10_dp"
+            android:textAlignment="textStart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+</LinearLayout>

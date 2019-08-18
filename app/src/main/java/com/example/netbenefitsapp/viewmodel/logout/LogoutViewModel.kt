@@ -3,6 +3,7 @@ package com.example.netbenefitsapp.viewmodel.logout
 import android.content.Intent
 import android.view.View
 import androidx.lifecycle.ViewModel;
+import com.example.netbenefitsapp.view.activities.loggedout.LoggedOutActivity
 import com.example.netbenefitsapp.view.activities.welcome.WelcomeActivity
 import com.google.firebase.auth.FirebaseAuth
 
@@ -11,7 +12,7 @@ class LogoutViewModel : ViewModel() {
 
     fun logout(view : View) {
         mAuth.signOut()
-        val logoutIntent = Intent(view.context, WelcomeActivity::class.java)
+        val logoutIntent = Intent(view.context, LoggedOutActivity::class.java)
         view.context.startActivity(logoutIntent)
     }
 

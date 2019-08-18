@@ -18,6 +18,7 @@ import com.example.netbenefitsapp.model.User
 import com.example.netbenefitsapp.model.Video
 import com.example.netbenefitsapp.model.datasource.local.LibraryDatabase
 import com.example.netbenefitsapp.model.stockresponse.StockResponse
+import com.example.netbenefitsapp.view.activities.loggedout.LoggedOutActivity
 import com.example.netbenefitsapp.view.activities.welcome.WelcomeActivity
 import com.example.netbenefitsapp.view.fragments.*
 import com.example.netbenefitsapp.viewmodel.main.MainActivityViewModel
@@ -101,6 +102,8 @@ class MainActivity : AppCompatActivity(), MarketFragment.OnFragmentInteractionLi
             }
             R.id.navigation_actions -> {
                 toolbar.title = getString(R.string.actions)
+                val actionsFragment = ActionsFragment.newInstance(mUser)
+                openFragments(actionsFragment)
                 return@OnNavigationItemSelectedListener true
             }
         }
@@ -143,7 +146,7 @@ class MainActivity : AppCompatActivity(), MarketFragment.OnFragmentInteractionLi
             }
             R.id.logout -> {
                 FirebaseAuth.getInstance().signOut()
-                startActivity(Intent(this, WelcomeActivity::class.java))
+                startActivity(Intent(this, LoggedOutActivity::class.java))
             }
         }
 

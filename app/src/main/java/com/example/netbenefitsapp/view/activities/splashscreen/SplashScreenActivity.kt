@@ -28,7 +28,8 @@ class SplashScreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
 
-        supportActionBar?.setBackgroundDrawable(ColorDrawable(ContextCompat.getColor(this, R.color.color_green)))
+        supportActionBar?.hide()
+        //supportActionBar?.setBackgroundDrawable(ColorDrawable(ContextCompat.getColor(this, R.color.color_green)))
 
         ivSplashScreen = findViewById(R.id.ivSplashScreen)
         tvSplashScreen = findViewById(R.id.tvSplashScreen)

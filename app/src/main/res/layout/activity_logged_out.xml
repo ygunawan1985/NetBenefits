@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".view.activities.loggedout.LoggedOutActivity">
+
+    <data>
+        <variable
+                name="viewModel"
+                type="com.example.netbenefitsapp.viewmodel.loggedout.LoggedOutViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorWhite">
+
+        <ImageView
+                android:id="@+id/ivNetBenefitsLogo"
+                android:src="@drawable/fidelitynetbenefits"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintHeight_percent="0.2"
+                android:layout_marginTop="@dimen/margin_220_dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+                android:id="@+id/tvLoggedOut"
+                android:text="@string/you_ve_successfully_logged_out"
+                android:textColor="@color/colorBlack"
+                android:textStyle="bold"
+                style="@style/StandardTitleStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivNetBenefitsLogo"/>
+
+        <Button
+                android:id="@+id/btnLogInAgain"
+                android:text="@string/log_in_again"
+                android:textColor="@color/colorWhite"
+                android:background="@color/colorBlue"
+                android:layout_marginTop="@dimen/margin_30_dp"
+                android:layout_marginStart="@dimen/margin_120_dp"
+                android:layout_marginEnd="@dimen/margin_120_dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvLoggedOut"
+                android:onClick="@{(view) -> viewModel.loginAgain(view)}"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
