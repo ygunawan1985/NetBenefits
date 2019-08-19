@@ -1,13 +1,14 @@
 package com.example.netbenefitsapp.model.datasource.local
 
 import com.example.netbenefitsapp.model.Article
+import com.example.netbenefitsapp.model.Photo
 import com.example.netbenefitsapp.model.Video
 
 class LibraryDatabase {
 
     private lateinit var articles : ArrayList<Article>
     private lateinit var videos : ArrayList<Video>
-    //private lateinit var companyLogos
+    private lateinit var photos : ArrayList<Photo>
 
     fun populateArticles() {
         articles = ArrayList()
@@ -35,11 +36,23 @@ class LibraryDatabase {
         videos.add(Video("3 Things to Know Before Taking a Loan", "Before dipping into your long-term retirement account for some quick cash, here are three things you should know.", "https://www.fidelity.com/mymoneybasics/3-things-you-should-know-before-taking-a-retirement-loan"))
     }
 
+    fun populatePhotos() {
+        photos = ArrayList()
+        photos.add(Photo("Arya", "https://i.imgur.com/w0hkvWT.jpg"))
+        photos.add(Photo("Sansa", "https://i.imgur.com/B7FMl10.jpg"))
+        photos.add(Photo("Jon", "https://i.imgur.com/IEfdxBD.jpg"))
+        photos.add(Photo("Daenerys", "https://i.imgur.com/HynQP07.jpg"))
+    }
+
     fun getArticles() : ArrayList<Article> {
         return articles
     }
 
     fun getVideos() : ArrayList<Video> {
         return videos
+    }
+
+    fun getPhotos() : ArrayList<Photo> {
+        return photos
     }
 }

@@ -14,12 +14,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.example.netbenefitsapp.R
 import com.example.netbenefitsapp.model.Article
+import com.example.netbenefitsapp.model.Photo
 import com.example.netbenefitsapp.model.User
 import com.example.netbenefitsapp.model.Video
 import com.example.netbenefitsapp.model.datasource.local.LibraryDatabase
 import com.example.netbenefitsapp.model.stockresponse.StockResponse
 import com.example.netbenefitsapp.view.activities.loggedout.LoggedOutActivity
-import com.example.netbenefitsapp.view.activities.welcome.WelcomeActivity
 import com.example.netbenefitsapp.view.fragments.*
 import com.example.netbenefitsapp.viewmodel.main.MainActivityViewModel
 import com.google.firebase.auth.FirebaseAuth
@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity(), MarketFragment.OnFragmentInteractionLi
     lateinit var toolbar : ActionBar
     private lateinit var articles : ArrayList<Article>
     private lateinit var videos : ArrayList<Video>
+    private lateinit var photos : ArrayList<Photo>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,6 +70,8 @@ class MainActivity : AppCompatActivity(), MarketFragment.OnFragmentInteractionLi
         articles = libraryDatabase.getArticles()
         libraryDatabase.populateVideos()
         videos = libraryDatabase.getVideos()
+        libraryDatabase.populatePhotos()
+        photos = libraryDatabase.getPhotos()
     }
 
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
@@ -102,7 +105,7 @@ class MainActivity : AppCompatActivity(), MarketFragment.OnFragmentInteractionLi
             }
             R.id.navigation_actions -> {
                 toolbar.title = getString(R.string.actions)
-                val actionsFragment = ActionsFragment.newInstance(mUser)
+                val actionsFragment = ActionsFragment.newInstance(mUser, photos)
                 openFragments(actionsFragment)
                 return@OnNavigationItemSelectedListener true
             }
@@ -127,7 +130,7 @@ class MainActivity : AppCompatActivity(), MarketFragment.OnFragmentInteractionLi
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
             R.id.profile -> {
-                mainActivityViewModel.displayProfile(this)
+                mainActivityViewModel.displayProfile(this, photos)
             }
             R.id.contactUs -> {
                 val contactUsIntent = Intent(Intent.ACTION_VIEW)

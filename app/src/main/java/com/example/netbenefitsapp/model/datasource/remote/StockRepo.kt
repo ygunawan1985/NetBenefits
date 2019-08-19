@@ -9,7 +9,7 @@ class StockRepo {
         fun getStockList(stockCallback: StockCallback) {
             RetrofitHelper()
                 .getStockService()
-                .getStockResponse("2019-07-28", "2019-08-11", UrlConstants.API_TOKEN, "d", "json")
+                .getStockResponse("2019-08-01", "2019-08-18", UrlConstants.API_TOKEN, "d", "json")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(StockObserver(stockCallback))

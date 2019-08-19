@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".view.activities.updateprofile.UpdateProfileActivity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <ImageView
+            android:id="@+id/ivUserPhoto"
+            android:layout_marginTop="@dimen/margin_20_dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    <EditText
+            android:id="@+id/etFirstName"
+            android:textSize="@dimen/font_size_25"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_border"
+            android:layout_marginStart="@dimen/margin_50_dp"
+            android:layout_marginEnd="@dimen/margin_50_dp"
+            android:layout_marginTop="@dimen/margin_10_dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivUserPhoto"/>
+
+    <EditText
+            android:id="@+id/etLastName"
+            android:textSize="@dimen/font_size_25"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_border"
+            android:layout_marginStart="@dimen/margin_50_dp"
+            android:layout_marginEnd="@dimen/margin_50_dp"
+            android:layout_marginTop="@dimen/margin_10_dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etFirstName"/>
+
+    <EditText
+            android:id="@+id/etSocialSecurity"
+            android:textSize="@dimen/font_size_25"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_border"
+            android:layout_marginStart="@dimen/margin_50_dp"
+            android:layout_marginEnd="@dimen/margin_50_dp"
+            android:layout_marginTop="@dimen/margin_10_dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etLastName"/>
+
+    <EditText
+            android:id="@+id/etInsurance"
+            android:textSize="@dimen/font_size_25"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_border"
+            android:layout_marginStart="@dimen/margin_50_dp"
+            android:layout_marginEnd="@dimen/margin_50_dp"
+            android:layout_marginTop="@dimen/margin_10_dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etSocialSecurity"/>
+
+    <Button
+            android:id="@+id/btnUpdateNow"
+            android:text="@string/update_now"
+            android:layout_marginTop="@dimen/margin_20_dp"
+            android:layout_marginStart="@dimen/margin_120_dp"
+            android:layout_marginEnd="@dimen/margin_120_dp"
+            android:background="@color/colorBlue"
+            android:textColor="@color/colorWhite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/etInsurance"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:onClick="onClick"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

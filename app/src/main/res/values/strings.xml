@@ -72,5 +72,19 @@
     <string name="tax_information">Tax information</string>
     <string name="about_you">ABOUT YOU</string>
     <string name="update_your_profile">Update your profile</string>
+    <string name="change_password">Change password</string>
+    <string name="company_headquarter">COMPANY HEADQUARTER</string>
+    <string name="company_address_info">Company address info</string>
+    <string name="show_google_maps">Show Google Maps</string>
+    <string name="microsoft_401_k">MICROSOFT SAVINGS PLUS 401(K) PLAN</string>
+    <string name="nike_401_k">NIKE EMPLOYEE BENEFIT: 401(K) PLAN</string>
+    <string name="mac_401_k">MAC 401(K) PLAN</string>
+    <string name="fidelity_mutual_fund_tax_information">Fidelity Mutual Fund tax information</string>
+    <string name="enter_your_new_password">Enter your new password...</string>
+    <string name="you_will_be_logged_out_after_changing_your_password">You will be logged out after changing your
+        password!
+    </string>
+    <string name="update_now">Update Now</string>
+    <string name="title_activity_company_maps">Company Map</string>
 
 </resources>

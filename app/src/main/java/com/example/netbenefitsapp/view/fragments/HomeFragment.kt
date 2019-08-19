@@ -23,6 +23,7 @@ class HomeFragment : Fragment(), HomeViewModel.MyCallback {
     private lateinit var tvPortfolioBalance : TextView
     private lateinit var tvSavingsBalance : TextView
     private lateinit var tvTodaysDate : TextView
+    private lateinit var tvSavingsName : TextView
 
     companion object {
         fun newInstance() = HomeFragment()
@@ -43,6 +44,7 @@ class HomeFragment : Fragment(), HomeViewModel.MyCallback {
         tvPortfolioBalance = view.findViewById(R.id.tvPortfolioBalance)
         tvSavingsBalance = view.findViewById(R.id.tvSavingsBalance)
         tvTodaysDate = view.findViewById(R.id.tvTodaysDate)
+        tvSavingsName = view.findViewById(R.id.tvSavingsName)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -66,6 +68,13 @@ class HomeFragment : Fragment(), HomeViewModel.MyCallback {
             val formatter = SimpleDateFormat("MMM dd yyyy HH:mma")
             val answer: String = "As of " + formatter.format(date)
             tvTodaysDate.text = answer
+        }
+
+        when(user.company){
+            "Starbucks" -> tvSavingsName.text = getString(R.string.future_roast_401_k)
+            "Microsoft" -> tvSavingsName.text = getString(R.string.microsoft_401_k)
+            "Nike" -> tvSavingsName.text = getString(R.string.nike_401_k)
+            "Mobile Apps Company" -> tvSavingsName.text = getString(R.string.mac_401_k)
         }
 
 

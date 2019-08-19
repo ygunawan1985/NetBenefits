@@ -13,4 +13,5 @@
     <color name="color_green">#036808</color>
     <color name="colorWhiteTransparent">#80FFFFFF</color>
     <color name="colorBlack">#000000</color>
+    <color name="colorLightGrey">#E2E0E0</color>
 </resources>

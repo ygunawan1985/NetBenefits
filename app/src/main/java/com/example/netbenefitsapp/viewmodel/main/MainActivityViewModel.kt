@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.ViewModel
+import com.example.netbenefitsapp.model.Photo
 import com.example.netbenefitsapp.model.User
 import com.example.netbenefitsapp.view.activities.displayprofile.DisplayProfileActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -14,7 +15,10 @@ class MainActivityViewModel : ViewModel() {
     private val mDatabase : FirebaseDatabase = FirebaseDatabase.getInstance()
     private val usersRef: DatabaseReference = mDatabase.getReference("users")
 
-    fun displayProfile(context: Context) {
+    fun displayProfile(
+        context: Context,
+        photos: ArrayList<Photo>
+    ) {
         getUser(object : MyCallback {
             override fun onCallback(user: User) {
                 val userIntent = Intent(context, DisplayProfileActivity::class.java)
@@ -24,6 +28,7 @@ class MainActivityViewModel : ViewModel() {
                     user.firstName.toString(), user.lastName.toString(),
                     user.ssn.toString(), user.company.toString(), user.insurance.toString(), user.balance, user.companyLogoUrl.toString())
                 bundle.putParcelable("user", mUser)
+                bundle.putParcelableArrayList("photos", photos)
                 userIntent.putExtra("bundle", bundle)
                 context.startActivity(userIntent)
             }
